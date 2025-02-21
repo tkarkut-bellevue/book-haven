@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Book Haven</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="assets/img/logo.png" alt="Book Haven Logo">
+        <h1 class="display">Our Collection</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Products & Services Summary -->
+        <section class="products-summary">
+            <h2 class="title-large">Our Products & Services</h2>
+            <div class="table-container">
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Items/Services</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Books</td>
+                            <td>Fiction, Non-Fiction, Children's Books</td>
+                            <td>Wide selection of contemporary and classic literature</td>
+                        </tr>
+                        <tr>
+                            <td>Magazines</td>
+                            <td>Monthly & Weekly Publications</td>
+                            <td>Latest issues of popular magazines and periodicals</td>
+                        </tr>
+                        <tr>
+                            <td>Stationery</td>
+                            <td>Notebooks, Planners, Writing Supplies</td>
+                            <td>High-quality office and school supplies</td>
+                        </tr>
+                        <tr>
+                            <td>Services</td>
+                            <td>Gift Wrapping, Special Orders, Book Club</td>
+                            <td>Complimentary gift wrapping and personalized recommendations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Cart Controls -->
+        <div class="cart-controls">
+            <button onclick="viewCart()">View Cart</button>
+            <button onclick="clearCart()">Clear Cart</button>
+            <button onclick="processOrder()">Process Order</button>
+        </div>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <h2 class="title-large">Featured Products</h2>
+            <div class="gallery-grid">
+                <div class="book-card">
+                    <img src="assets/img/Client3_Book1.png" alt="Mystery Novel">
+                    <h3 class="title">The Hidden Clue</h3>
+                    <p class="body">A gripping mystery novel that will keep you guessing until the last page. Perfect for fans of classic detective stories.</p>
+                    <p class="price body-strong">$24.99</p>
+                    <button onclick="addToCart('Mystery Novel')">Add to Cart</button>
+                </div>
+                
+                <div class="book-card">
+                    <img src="assets/img/Client3_Book2.png" alt="Cooking Guide">
+                    <h3 class="title">Culinary Adventures</h3>
+                    <p class="body">Explore world cuisines with this comprehensive cookbook featuring recipes from around the globe.</p>
+                    <p class="price body-strong">$29.99</p>
+                    <button onclick="addToCart('Cooking Guide')">Add to Cart</button>
+                </div>
+
+                <div class="book-card">
+                    <img src="assets/img/Client3_Book3.png" alt="Science Book">
+                    <h3 class="title">Wonders of Science</h3>
+                    <p class="body">An illustrated guide to scientific discoveries and phenomena, perfect for curious minds.</p>
+                    <p class="price body-strong">$27.99</p>
+                    <button onclick="addToCart('Science Book')">Add to Cart</button>
+                </div>
+
+                <div class="book-card">
+                    <img src="assets/img/Client3_Magazine1.png" alt="Lifestyle Magazine">
+                    <h3 class="title">Modern Living</h3>
+                    <p class="body">Monthly magazine featuring the latest trends in lifestyle, home decor, and wellness.</p>
+                    <p class="price body-strong">$8.99</p>
+                    <button onclick="addToCart('Lifestyle Magazine')">Add to Cart</button>
+                </div>
+
+                <div class="book-card">
+                    <img src="assets/img/Client3_Magazine2.png" alt="Art Magazine">
+                    <h3 class="title">Creative Arts Monthly</h3>
+                    <p class="body">Showcase of contemporary art, interviews with artists, and creative techniques.</p>
+                    <p class="price body-strong">$9.99</p>
+                    <button onclick="addToCart('Art Magazine')">Add to Cart</button>
+                </div>
+
+                <div class="book-card">
+                    <img src="assets/img/Client3_Notebook.png" alt="Premium Notebook">
+                    <h3 class="title">Artisan Notebook</h3>
+                    <p class="body">High-quality notebook with premium paper, perfect for journaling or sketching.</p>
+                    <p class="price body-strong">$19.99</p>
+                    <button onclick="addToCart('Premium Notebook')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-buttons">
+                <button onclick="clearCart()">Clear Cart</button>
+                <button onclick="processOrder()">Process Order</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Book Haven Bookstore</p>
+            <div class="subscribe-form">
+                <input type="email" id="subscribeEmail" placeholder="Enter your email" required>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
